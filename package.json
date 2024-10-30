@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "copy-paste": "^1.5.3"
+  },
+  "name": "discweeklytimestamp",
+  "version": "1.0.0",
+  "description": "Create a timestamp for the next specific hour and day of the week for discord to keep users aware of when a certain event occurs.",
+  "main": "discTimestamp.js",
+  "scripts": {
+    "start": "node discTimestamp"
+  },
+  "keywords": [
+    "discord",
+    "timestamp",
+    "weekly"
+  ],
+  "repository": {
+    "url": "https://github.com/sachieko/discTimestamp"
+  },
+  "author": "sachieko",
+  "license": "MIT"
+}
