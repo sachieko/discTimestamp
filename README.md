@@ -10,7 +10,7 @@ This will automatically copy the string shown in console to your OS clipboard fo
 
 ## How to setup
 
-This will currently make a timestamp that finds the next Wednesday at 8 PM. To modify is, change the following numbers.
+This will currently make a timestamp that finds the next Wednesday at 8 PM. To modify it change the following numbers.
 
 Change the number for `DAYOFWEEK` on line 4 to get your desired date. **3** represents Wednesday for example, starting at **0** for Sunday, ending at **6** for Saturday.
 
