@@ -15,13 +15,14 @@ This will currently make a timestamp that finds the next Wednesday at 8 PM. To m
 Change the number for `DAYOFWEEK` on line 4 to get your desired date. **3** represents Wednesday for example, starting at **0** for Sunday, ending at **6** for Saturday.
 
 ```js 
+// line 4
 nextDate.setDate(nextDate.getDate() + ((DAYOFWEEK + 7 - nextDate.getDay()) % 7));
 ```
 
 Change the number for `HOUR` (in 24h time format, ie: 16 = 4 PM) on line 6
 
 ```js
-nextDate.setHours(HOUR);
+nextDate.setHours(HOUR); // line 6
 ```
 
 Save the file and then run and paste the string into discord to test. 
