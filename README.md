@@ -4,28 +4,28 @@ This is a simple command-line node.js program that creates a timestamp and copie
 
 ### Use
 
-`npm run dev` or `node discTimestamp.js`
+>`npm start [day] [hour] [minutes] [seconds]` 
+
+or 
+
+>`node discTimestamp.js [day] [hour] [minutes] [seconds]`
 
 This will automatically copy the string shown in console to your OS clipboard for pasting into discord. Just paste it in as part of a message and send and it will automatically adjust for all users. Great for letting people know when a certain event is taking place!
 
-## How to setup
+## How to setup and demo
 
-This will currently make a timestamp that finds the next Wednesday at 8 PM. To modify it change the following numbers.
+Run `npm install` to install the necessary node modules. There is only 1 package it depends on, see dependencies for more information.
 
-Change the number for `DAYOFWEEK` on line 4 to get your desired date. **3** represents Wednesday for example, starting at **0** for Sunday, ending at **6** for Saturday.
+## How to use 
+You can make a timestamp to post into discord with the following format in the example:
 
-```js 
-// line 4
-nextDate.setDate(nextDate.getDate() + ((DAYOFWEEK + 7 - nextDate.getDay()) % 7));
-```
+>`npm start 25 20`  
 
-Change the number for `HOUR` (in 24h time format, ie: 16 = 4 PM) on line 6
+This sets a timestamp for the next 25th day of the month at 8:00 PM. You can also include minutes and even seconds if you wish in the following format: 
 
-```js
-nextDate.setHours(HOUR); // line 6
-```
+>`npm start 25 20 30 15`
 
-Save the file and then run and paste the string into discord to test. 
+This sets a timestamp for the next 25th day of the month at 8:30:15 PM.
 
 ## Dependencies
 
@@ -34,3 +34,7 @@ This program depends on [node-copy-paste](https://www.npmjs.com/package/copy-pas
 If there are issues with using this dependency on Windows, you can try installing another node module that allows writing to the OS's clipboard.
 
 I've kept this simple since it is writing to the OS's clipboard so it is very clear what is being written to those with little dev knowledge.
+
+## Version details
+
+1.1.0 is a breaking change with 1.0.0 in terms of how to use it. You no longer need to edit numbers within the program to use it for personal use, just input arguments when you initially run the program.
