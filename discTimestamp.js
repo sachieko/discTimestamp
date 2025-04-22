@@ -6,7 +6,6 @@ const minutes = process.argv[4] || 0;
 const seconds = process.argv[5] || 0;
 // If the day chosen is less than the current day of the month, use it for the next month
 // This makes the program useful only for setting future timestamps, the intended use.
-console.log(nextDate.getDate());
 if (dayOfMonth < nextDate.getDate()) {
   nextDate.setMonth(nextDate.getMonth() + 1);
 }
