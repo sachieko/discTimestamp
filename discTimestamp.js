@@ -1,12 +1,20 @@
 const ncp = require("copy-paste");
 const nextDate = new Date();
-// 3 represents the Wednesday, while 7 is days in a week.
-nextDate.setDate(nextDate.getDate() + ((3 + 7 - nextDate.getDay()) % 7));
-// This is 8 PM in 24 hour time. Chance 20 to desired 24h time to modify.
-nextDate.setHours(20);
-nextDate.setMinutes(0);
-nextDate.setSeconds(0);
-// Discord timestamps do not use milliseconds so we remove them
+const dayOfMonth = process.argv[2] || nextDate.getDate() + 7; // Sets a week forward by default
+const hour = process.argv[3] || 20; // automatically sets to 8 PM locally as a demo
+const minutes = process.argv[4] || 0;
+const seconds = process.argv[5] || 0;
+// If the day chosen is less than the current day of the month, use it for the next month
+// This makes the program useful only for setting future timestamps, the intended use.
+console.log(nextDate.getDate());
+if (dayOfMonth < nextDate.getDate()) {
+  nextDate.setMonth(nextDate.getMonth() + 1);
+}
+nextDate.setDate(dayOfMonth);
+nextDate.setHours(hour);
+nextDate.setMinutes(minutes);
+nextDate.setSeconds(seconds);
+// Discord timestamps do not use milliseconds so we remove them from the UTC timestamp
 const UTCstamp = `${(nextDate.getTime() - (nextDate.getTime() % 1000)) / 1000}`;
 const discordString = `<t:${UTCstamp}:R> , <t:${UTCstamp}:F>`;
 ncp.copy(discordString, () => {
